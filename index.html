@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Knight - Stage it Right | College Festival Production | Pune</title>
-    <meta name="description" content="Professional event production for college and corporate festivals in Pune. Stage design, lighting, sound & backstage management.">
+    <meta name="description" content="Professional event production for college and corporate festivals in Pune.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
         body {
@@ -20,39 +18,40 @@
         }
         
         h1, h2, h3 {
-            font-family: 'Oswald', sans-serif;
-            letter-spacing: 2px;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 3px;
         }
         
-        /* Animated gradient background */
+        /* Hero with image background + animated overlay */
+        .hero-bg {
+            position: relative;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(139,0,139,0.6)), 
+                        url('images/9bd11247-26a6-46b5-90cb-554dee695167.JPEG');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(-45deg, rgba(255,0,110,0.3), rgba(131,56,236,0.3), rgba(58,134,255,0.3), rgba(255,214,10,0.3));
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            z-index: 1;
+        }
+        
         @keyframes gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
         
-        .animated-gradient {
-            background: linear-gradient(-45deg, #FF006E, #8338EC, #3A86FF, #FFD60A, #FB5607);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-        
-        /* Neon glow effects */
-        .neon-text {
-            text-shadow: 
-                0 0 10px rgba(255, 0, 110, 0.8),
-                0 0 20px rgba(255, 0, 110, 0.6),
-                0 0 30px rgba(255, 0, 110, 0.4);
-        }
-        
-        .neon-border {
-            border: 2px solid rgba(255, 214, 10, 0.6);
-            box-shadow: 
-                0 0 10px rgba(255, 214, 10, 0.6),
-                inset 0 0 10px rgba(255, 214, 10, 0.3);
-        }
-        
-        /* Particles background */
+        /* Particles */
         .particles {
             position: absolute;
             width: 100%;
@@ -60,7 +59,7 @@
             overflow: hidden;
             top: 0;
             left: 0;
-            z-index: 0;
+            z-index: 2;
         }
         
         .particle {
@@ -76,40 +75,24 @@
             100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
         
-        /* Glitch effect */
-        .glitch {
-            position: relative;
+        /* Neon text glow */
+        .neon-text {
+            text-shadow: 
+                0 0 10px rgba(255, 0, 110, 0.8),
+                0 0 20px rgba(255, 0, 110, 0.6),
+                0 0 30px rgba(255, 0, 110, 0.4);
         }
         
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .glitch::before {
-            animation: glitch-1 2s infinite;
-            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-            transform: translate(-2px, -2px);
-            opacity: 0.8;
-        }
-        
-        @keyframes glitch-1 {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
+        .gold-text-glow {
+            text-shadow: 
+                0 0 10px rgba(255, 215, 0, 0.5),
+                0 0 20px rgba(255, 215, 0, 0.3);
         }
         
         /* Pulse animation */
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.9; }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         .pulse {
@@ -129,19 +112,18 @@
             box-shadow: 0 20px 40px rgba(131, 56, 236, 0.4);
         }
         
+        /* Neon borders */
+        .neon-border {
+            border: 2px solid rgba(255, 214, 10, 0.6);
+            box-shadow: 
+                0 0 10px rgba(255, 214, 10, 0.6),
+                inset 0 0 10px rgba(255, 214, 10, 0.3);
+        }
+        
         /* Button glow */
         .btn-glow:hover {
             transform: scale(1.05);
             box-shadow: 0 0 30px rgba(255, 214, 10, 0.8);
-        }
-        
-        /* Hover neon */
-        .hover-neon:hover {
-            transform: translateY(-5px);
-            box-shadow: 
-                0 0 30px rgba(255, 0, 110, 0.8),
-                0 0 60px rgba(255, 0, 110, 0.6);
-            transition: all 0.3s ease;
         }
         
         /* Reveal animation */
@@ -155,12 +137,21 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Hover neon */
+        .hover-neon:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 0 30px rgba(255, 0, 110, 0.8),
+                0 0 60px rgba(255, 0, 110, 0.6);
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-black text-white">
 
     <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 bg-black bg-opacity-80 backdrop-blur-lg border-b border-purple-900">
+    <nav class="fixed w-full top-0 z-50 bg-black bg-opacity-90 backdrop-blur-lg border-b border-purple-900">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="text-3xl font-black neon-text tracking-wider hover:opacity-80 transition">⚡ EVENT KNIGHT</a>
             <div class="hidden md:flex space-x-8 items-center">
@@ -188,7 +179,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center animated-gradient overflow-hidden">
+    <section class="relative min-h-screen flex items-center justify-center hero-bg overflow-hidden">
         <!-- Animated particles -->
         <div class="particles">
             <div class="particle" style="left: 10%; width: 10px; height: 10px; background: rgba(255, 0, 110, 0.6); animation-delay: 0s;"></div>
@@ -209,9 +200,9 @@
                 </span>
             </div>
             
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 glitch" data-text="STAGE IT RIGHT">
-                <span class="block mb-2">STAGE IT</span>
-                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600">RIGHT</span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6">
+                <div class="mb-3 gold-text-glow">STAGE IT</div>
+                <div class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600">RIGHT</div>
             </h1>
             
             <p class="text-2xl md:text-4xl font-bold mb-4 text-white">
@@ -247,7 +238,7 @@
             </div>
         </div>
         
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
@@ -282,78 +273,54 @@
                     <div class="text-6xl mb-6">🎭</div>
                     <h3 class="text-3xl font-black mb-4 text-yellow-400">STAGE DESIGN</h3>
                     <p class="text-gray-300 text-lg mb-6">
-                        Captivating setups that steal the show. Custom designs that match your vibe.
+                        Captivating setups that steal the show. Custom designs from intimate to MASSIVE.
                     </p>
                     <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> Custom theme designs
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> LED screens & backdrops
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> Stage props & decor
-                        </li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Custom theme designs</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> LED screens & backdrops</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Stage props & decor</li>
                     </ul>
                 </div>
 
                 <!-- Lighting & Sound -->
-                <div class="service-card p-8 rounded-2xl hover-neon reveal" style="animation-delay: 0.2s;">
+                <div class="service-card p-8 rounded-2xl hover-neon reveal">
                     <div class="text-6xl mb-6">💡</div>
                     <h3 class="text-3xl font-black mb-4 text-pink-400">LIGHTING & SOUND</h3>
                     <p class="text-gray-300 text-lg mb-6">
                         Audio-visual experiences that HIT DIFFERENT. Pro equipment, expert techs.
                     </p>
                     <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> Concert-grade sound
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> Dynamic lighting rigs
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> Expert audio engineers
-                        </li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Concert-grade sound</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Dynamic lighting rigs</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Expert audio engineers</li>
                     </ul>
                 </div>
 
                 <!-- Backstage Management -->
-                <div class="service-card p-8 rounded-2xl hover-neon reveal" style="animation-delay: 0.4s;">
+                <div class="service-card p-8 rounded-2xl hover-neon reveal">
                     <div class="text-6xl mb-6">⚙️</div>
                     <h3 class="text-3xl font-black mb-4 text-purple-400">BACKSTAGE MAGIC</h3>
                     <p class="text-gray-300 text-lg mb-6">
-                        Smooth operations you won't even notice. We handle the chaos.
+                        Smooth operations you won't notice. We handle the chaos seamlessly.
                     </p>
                     <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> Artist coordination
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> Timeline management
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> Real-time solutions
-                        </li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Artist coordination</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Timeline management</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Real-time solutions</li>
                     </ul>
                 </div>
 
                 <!-- Artist Management -->
-                <div class="service-card p-8 rounded-2xl hover-neon reveal" style="animation-delay: 0.6s;">
+                <div class="service-card p-8 rounded-2xl hover-neon reveal">
                     <div class="text-6xl mb-6">🎤</div>
                     <h3 class="text-3xl font-black mb-4 text-cyan-400">ARTIST MANAGEMENT</h3>
                     <p class="text-gray-300 text-lg mb-6">
-                        Complete artist consultation and booking services. From indie to established names.
+                        Complete artist consultation and booking. From indie to established names.
                     </p>
                     <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> Artist booking
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> Contract management
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-400">✓</span> Production coordination
-                        </li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Artist booking</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Contract management</li>
+                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Production coordination</li>
                     </ul>
                 </div>
             </div>
@@ -370,9 +337,7 @@
     <section id="portfolio" class="py-24 bg-gradient-to-b from-black to-purple-950">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 reveal">
-                <span class="inline-block px-6 py-2 border border-yellow-500 rounded-full text-yellow-400 font-bold text-sm mb-4">
-                    OUR WORK
-                </span>
+                <span class="inline-block px-6 py-2 border border-yellow-500 rounded-full text-yellow-400 font-bold text-sm mb-4">OUR WORK</span>
                 <h2 class="text-5xl md:text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
                     EVENTS THAT LEAVE A MARK
                 </h2>
@@ -387,31 +352,34 @@
                     <img src="images/IMG_1599.jpg" alt="Stage Performance" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1616.jpg" alt="Artist on Stage" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img src="images/IMG_1616.jpg" alt="Artist" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1657.jpg" alt="The Lost Fireflies" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img src="images/FireFlies.jpeg" alt="FireFlies" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1659.jpg" alt="Band Setup" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img src="images/IMG_1657.jpg" alt="Stage" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1675.jpg" alt="Female Vocalist" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img src="images/IMG_1659.jpg" alt="Band" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1687.jpg" alt="Lighting Rig" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img src="images/IMG_1675.jpg" alt="Vocalist" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1693.jpg" alt="NEEV SCMHRD" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img src="images/IMG_1687.jpg" alt="Lighting" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1697.jpg" alt="Band Performance" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img src="images/IMG_1693.jpg" alt="NEEV" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/F904DBE5-7D6A-45AD-BF2A-24F1C9AB3A7F.JPG" alt="Lighting Setup" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img src="images/IMG_1697.jpg" alt="Performance" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/C727A3B0-78C4-4825-8387-176AB6C3F45E.JPG" alt="Stage Setup" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img src="images/F904DBE5-7D6A-45AD-BF2A-24F1C9AB3A7F.JPG" alt="Setup" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg group">
+                    <img src="images/C727A3B0-78C4-4825-8387-176AB6C3F45E.JPG" alt="Stage Day" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
             </div>
             
@@ -420,7 +388,7 @@
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                     </svg>
-                    VIEW FULL PORTFOLIO ON INSTAGRAM
+                    VIEW FULL PORTFOLIO
                 </a>
             </div>
         </div>
@@ -430,9 +398,7 @@
     <section id="about" class="py-24 bg-black">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-12 reveal">
-                <span class="inline-block px-6 py-2 border border-purple-500 rounded-full text-purple-300 font-bold text-sm mb-4">
-                    WHO WE ARE
-                </span>
+                <span class="inline-block px-6 py-2 border border-purple-500 rounded-full text-purple-300 font-bold text-sm mb-4">WHO WE ARE</span>
                 <h2 class="text-5xl md:text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
                     FESTIVAL EXPERTS WHO LIVED IT
                 </h2>
@@ -440,7 +406,7 @@
             
             <div class="text-lg text-gray-300 space-y-6 reveal">
                 <p class="text-xl leading-relaxed">
-                    We're not just another event company. We're <span class="text-yellow-400 font-bold">festival organizers turned professionals</span> - from COEP's legendary "Impressions" to SCMHRD's NEEV, we've lived the college festival life.
+                    We're not just another event company. We're <span class="text-yellow-400 font-bold">festival organizers turned professionals</span> - from COEP's legendary "Impressions" to SCMHRD's NEEV.
                 </p>
                 <p class="text-xl leading-relaxed">
                     That's why we GET IT. The budget crunches, the impossible deadlines, the last-minute chaos. <span class="text-purple-400 font-bold">We've been there, survived it, and built a system that works for both college and corporate events.</span>
@@ -464,33 +430,22 @@
             
             <div class="grid md:grid-cols-2 gap-12">
                 <form action="https://formspree.io/f/xjgbloak" method="POST" class="space-y-6 reveal">
-                    <input type="text" name="name" placeholder="Your Name *" required 
-                           class="w-full px-4 py-3 bg-black bg-opacity-50 border border-purple-500 rounded-lg text-white placeholder-gray-400 focus:border-yellow-400 focus:outline-none">
-                    
-                    <input type="email" name="email" placeholder="Email *" required 
-                           class="w-full px-4 py-3 bg-black bg-opacity-50 border border-purple-500 rounded-lg text-white placeholder-gray-400 focus:border-yellow-400 focus:outline-none">
-                    
-                    <input type="tel" name="phone" placeholder="Phone *" required 
-                           class="w-full px-4 py-3 bg-black bg-opacity-50 border border-purple-500 rounded-lg text-white placeholder-gray-400 focus:border-yellow-400 focus:outline-none">
-                    
-                    <select name="event_type" 
-                            class="w-full px-4 py-3 bg-black bg-opacity-50 border border-purple-500 rounded-lg text-white focus:border-yellow-400 focus:outline-none">
+                    <input type="text" name="name" placeholder="Your Name *" required class="w-full px-4 py-3 bg-black bg-opacity-50 border border-purple-500 rounded-lg text-white placeholder-gray-400 focus:border-yellow-400 focus:outline-none">
+                    <input type="email" name="email" placeholder="Email *" required class="w-full px-4 py-3 bg-black bg-opacity-50 border border-purple-500 rounded-lg text-white placeholder-gray-400 focus:border-yellow-400 focus:outline-none">
+                    <input type="tel" name="phone" placeholder="Phone *" required class="w-full px-4 py-3 bg-black bg-opacity-50 border border-purple-500 rounded-lg text-white placeholder-gray-400 focus:border-yellow-400 focus:outline-none">
+                    <select name="event_type" class="w-full px-4 py-3 bg-black bg-opacity-50 border border-purple-500 rounded-lg text-white focus:border-yellow-400 focus:outline-none">
                         <option>College Cultural Fest</option>
                         <option>Corporate Event</option>
                         <option>Artist Management</option>
                         <option>Other</option>
                     </select>
-                    
-                    <textarea name="message" rows="4" placeholder="Tell us about your event *" required 
-                              class="w-full px-4 py-3 bg-black bg-opacity-50 border border-purple-500 rounded-lg text-white placeholder-gray-400 focus:border-yellow-400 focus:outline-none"></textarea>
-                    
-                    <button type="submit" 
-                            class="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-yellow-500 text-white font-bold py-4 rounded-lg btn-glow">
+                    <textarea name="message" rows="4" placeholder="Tell us about your event *" required class="w-full px-4 py-3 bg-black bg-opacity-50 border border-purple-500 rounded-lg text-white placeholder-gray-400 focus:border-yellow-400 focus:outline-none"></textarea>
+                    <button type="submit" class="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-yellow-500 text-white font-bold py-4 rounded-lg btn-glow">
                         GET FREE QUOTE ⚡
                     </button>
                 </form>
                 
-                <div class="space-y-8 reveal" style="animation-delay: 0.2s;">
+                <div class="space-y-8 reveal">
                     <div class="flex items-start gap-4">
                         <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -547,9 +502,7 @@
                     <div class="flex items-center gap-3 mb-4">
                         <span class="text-2xl font-black text-yellow-400">⚡ EVENT KNIGHT</span>
                     </div>
-                    <p class="text-gray-400">
-                        Professional event production for college and corporate festivals across India.
-                    </p>
+                    <p class="text-gray-400">Professional event production for college and corporate festivals across India.</p>
                 </div>
                 
                 <div>
@@ -579,20 +532,16 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
         
-        // Close mobile menu when clicking a link
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', function() {
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
         
-        // Scroll reveal animation
         const reveals = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -604,7 +553,6 @@
         
         reveals.forEach(reveal => revealObserver.observe(reveal));
         
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
