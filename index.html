@@ -46,7 +46,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preconnect to external resources for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
+    <!-- Load Tailwind with defer to prevent render blocking -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
     
     <!-- Schema.org JSON-LD for Local Business -->
     <script type="application/ld+json">
@@ -154,7 +160,10 @@
     }
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Optimized font loading with only needed weights and font-display swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet"></noscript>
     
     <!-- Structured Data - Local Business Schema -->
     <script type="application/ld+json">
@@ -238,14 +247,16 @@
     
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: #0a0a0a;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
         }
         
         h1, h2, h3 {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Bebas Neue', Impact, 'Arial Black', Arial, sans-serif;
             letter-spacing: 3px;
         }
         
@@ -771,40 +782,40 @@
             <div class="md:hidden overflow-x-auto pb-6 mb-8 -mx-4 px-4">
                 <div class="flex gap-4" style="width: max-content;">
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/9bd11247-26a6-46b5-90cb-554dee695167.JPEG" alt="Concert Production" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/9bd11247-26a6-46b5-90cb-554dee695167.JPEG" alt="Concert Production" class="w-full h-64 object-cover portfolio-img">
                     </div>
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/FireFlies2.jpeg" alt="FireFlies2" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/FireFlies2.jpeg" alt="FireFlies2" class="w-full h-64 object-cover portfolio-img">
                     </div>
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/FireFlies.jpeg" alt="FireFlies" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/FireFlies.jpeg" alt="FireFlies" class="w-full h-64 object-cover portfolio-img">
                     </div>
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/IMG_1659.jpg" alt="Band" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/IMG_1659.jpg" alt="Band" class="w-full h-64 object-cover portfolio-img">
                     </div>
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/IMG_1675.jpg" alt="Vocalist" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/IMG_1675.jpg" alt="Vocalist" class="w-full h-64 object-cover portfolio-img">
                     </div>
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/IMG_1687.jpg" alt="Lighting" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/IMG_1687.jpg" alt="Lighting" class="w-full h-64 object-cover portfolio-img">
                     </div>
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/NikhilDsouzaStage.jpeg" alt="NEEV" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/NikhilDsouzaStage.jpeg" alt="NEEV" class="w-full h-64 object-cover portfolio-img">
                     </div>
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/IMG_1697.jpg" alt="Performance" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/IMG_1697.jpg" alt="Performance" class="w-full h-64 object-cover portfolio-img">
                     </div>
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/F904DBE5-7D6A-45AD-BF2A-24F1C9AB3A7F.JPG" alt="Setup" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/F904DBE5-7D6A-45AD-BF2A-24F1C9AB3A7F.JPG" alt="Setup" class="w-full h-64 object-cover portfolio-img">
                     </div>
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/C727A3B0-78C4-4825-8387-176AB6C3F45E.JPG" alt="Stage Day" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/C727A3B0-78C4-4825-8387-176AB6C3F45E.JPG" alt="Stage Day" class="w-full h-64 object-cover portfolio-img">
                     </div>
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/9bd11247-26a6-46b5-90cb-554dee695167.JPEG" alt="Stage Day1" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/9bd11247-26a6-46b5-90cb-554dee695167.JPEG" alt="Stage Day1" class="w-full h-64 object-cover portfolio-img">
                     </div>
                     <div class="w-80 flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="images/IMG_1599.jpg" alt="Stage Performance" class="w-full h-64 object-cover portfolio-img">
+                        <img loading="lazy" src="images/IMG_1599.jpg" alt="Stage Performance" class="w-full h-64 object-cover portfolio-img">
                     </div>
                 </div>
             </div>
@@ -812,40 +823,40 @@
             <!-- Desktop: Grid gallery -->
             <div class="hidden md:grid grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/9bd11247-26a6-46b5-90cb-554dee695167.JPEG" alt="Concert Production" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/9bd11247-26a6-46b5-90cb-554dee695167.JPEG" alt="Concert Production" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/FireFlies2.jpeg" alt="FireFlies2" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/FireFlies2.jpeg" alt="FireFlies2" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/FireFlies.jpeg" alt="FireFlies" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/FireFlies.jpeg" alt="FireFlies" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1659.jpg" alt="Band" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/IMG_1659.jpg" alt="Band" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1675.jpg" alt="Vocalist" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/IMG_1675.jpg" alt="Vocalist" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1687.jpg" alt="Lighting" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/IMG_1687.jpg" alt="Lighting" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/NikhilDsouzaStage.jpeg" alt="NEEV" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/NikhilDsouzaStage.jpeg" alt="NEEV" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1697.jpg" alt="Performance" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/IMG_1697.jpg" alt="Performance" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/F904DBE5-7D6A-45AD-BF2A-24F1C9AB3A7F.JPG" alt="Setup" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/F904DBE5-7D6A-45AD-BF2A-24F1C9AB3A7F.JPG" alt="Setup" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/C727A3B0-78C4-4825-8387-176AB6C3F45E.JPG" alt="Stage Day" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/C727A3B0-78C4-4825-8387-176AB6C3F45E.JPG" alt="Stage Day" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/9bd11247-26a6-46b5-90cb-554dee695167.JPEG" alt="Stage Day1" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/9bd11247-26a6-46b5-90cb-554dee695167.JPEG" alt="Stage Day1" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-lg group">
-                    <img src="images/IMG_1599.jpg" alt="Stage Performance" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <img loading="lazy" src="images/IMG_1599.jpg" alt="Stage Performance" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
             </div>
             
@@ -1024,7 +1035,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
                 <div>
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="images/Event_Knight_Logo__1_.png" alt="Event Knight Logo" class="h-8 md:h-10 w-auto">
+                        <img loading="lazy" src="images/Event_Knight_Logo__1_.png" alt="Event Knight Logo" class="h-8 md:h-10 w-auto">
                         <span class="text-lg md:text-xl font-black text-yellow-400">EVENT KNIGHT</span>
                     </div>
                     <p class="text-sm md:text-base text-gray-400">Professional event production for college and corporate festivals across India.</p>
@@ -1069,7 +1080,7 @@
         </a>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Mobile menu toggle with animation
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
